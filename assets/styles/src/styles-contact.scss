@@ -1,0 +1,16 @@
+.wpcf7-text,.wpcf7-textarea{
+	border:none;
+	border-bottom:1px solid lightgray;
+	outline:none;
+}
+
+.wpcf7-text:focus,.wpcf7-textarea:focus{
+	border-bottom:1px solid black;
+}
+
+.wpcf7-submit{
+	width:300px;
+	background:#ffffff;
+	border-radius:5px;
+	border:1px solid black;
+}

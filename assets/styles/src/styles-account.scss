@@ -1,0 +1,154 @@
+.woocommerce{
+	display:flex;
+	justify-content:center;
+	width:100%;
+	flex-wrap: wrap;
+}
+
+.woocommerce-MyAccount-navigation ul{
+	list-style-type: none;
+	background-color: lightgrey;
+	margin-bottom:0px;
+	padding:5px !important;
+	margin-right:25px;
+}
+
+.woocommerce-MyAccount-Navigation ul li:after{
+	content: '____________';
+}
+
+
+li.woocommerce-MyAccount-navigation-link a{
+	color:#000 !important;
+	text-decoration: none !important;
+}
+
+@media(max-width:768px){
+	.woocommerce{
+		display:flex;
+		justify-content:center;
+		width:100%;
+	}
+
+}
+
+/* Cart */
+.woocommerce-cart-form{
+	width:100% !important;
+	
+}
+
+.woocommerce-cart-form table.shop_table{
+	border:none !important;
+}
+
+.cart.shop_table .product-thumbnail{
+	max-width:150px;
+}
+
+
+.cart-collaterals{
+	width:fit-content !important;
+	float:right !important;
+	min-width: 300px;
+}
+
+.cart-collaterals .cart_totals{
+	width:fit-content !important;
+	min-width:300px !important;
+	float:none !important;
+}
+
+.shop_table.cart .product-name a{
+	color:#000000 !important;
+	text-decoration: none !important;
+}
+
+td.actions{
+	text-align: inherit !important;
+}
+
+td.actions .coupon{
+	width:fit-content;
+	display:block;
+}
+
+td.actions .coupon input{
+	width:100% !important;
+	max-width:150px;
+	margin-right:5px;
+}
+
+td.actions .button{
+	float:right !important;
+}
+
+.woocommerce a.button{
+	background-color:#000000 !important;
+	border-radius: 0;
+	width:100%;
+	text-align: center;
+	color:#ffffff !important;
+}
+
+ button.single_add_to_cart_button{
+	 width: fit-content;
+	background-color:#000000 !important;
+	border-radius: 0;
+	text-align: center;
+	color:#ffffff !important;
+ }
+
+@media(max-width:786px){
+	.woocommerce-cart-form, .cart_totals{
+		width:100%;
+		min-width:100%;
+	}
+	.coupon{
+		width:100%;
+	}	
+	
+	.woocommerce ul.products li.product:nth-child(odd){
+		margin-right:5px;
+	}
+	
+	.woocommerce ul.products li.products:nth-child(even){
+		margin-left:5px;
+	}
+	
+	
+	
+}
+
+/* Product List Widget */
+.product_list_widget{
+	list-style-type:none;
+	padding-left:0px;
+}
+
+.product_list_widget li a img{
+	max-width: 150px;
+	max-height:150px;
+	width:100%;
+	height:auto;
+}
+
+.product_list_widget li a{
+	display: flex;
+    flex-flow: column;
+    align-items: center;
+    color:#000000;
+    text-decoration: none;
+}
+
+.product_list_widget li a:hover{
+	text-decoration: underline !important;
+}
+
+.product_list_widget li{
+	text-align: center;
+}
+
+.shop-sidebar-right .widget-title{
+	text-align: center;
+}

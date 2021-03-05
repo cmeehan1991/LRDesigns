@@ -1,0 +1,175 @@
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navbar-brand__holiday{
+	text-align: center;
+    position: relative;
+    top:100px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    max-height: 250px;
+    height: auto;
+}
+
+.navbar-brand__holiday img{
+	height:200px !important;
+}
+
+@media(max-width:768px){
+	.navbar-brand__holiday{
+		top:0px;
+	}
+	
+	.navbar-brand__holiday>img{
+		height:75px !important;
+		max-width:150px;
+	}
+}
+
+.holiday-navbar{
+	background-color:transparent;
+	position:absolute;
+	top:0;
+	z-index: 10;
+	width:100%;
+	text-align: center;
+}
+
+.holiday-header{
+	width:100%;
+	display:block;
+	position:relative;
+	height:100vh;
+	overflow: hidden;
+}
+
+
+.holiday-hero{
+	width:100%;
+	position:absolute;
+	top:0;
+	bottom:0;
+}
+
+.holiday-hero-text{
+	z-index: 10;
+	font-size:84px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	display:none;
+	background-color:transparent;
+	border:none;
+	color:rgb(115, 123, 130);
+	/*color:#000000;*/
+	display:none;
+}
+
+.scrollToContent{
+	width:100%;
+}
+
+.scrollToContent i{
+	position:absolute;
+	left:50%;
+	top:90%;
+	font-size:2em;
+	color:rgb(115, 123, 130);
+	z-index: 100;
+	cursor:pointer;
+}
+
+
+
+.row__full-width{
+	width:100%;
+	max-height:450px;
+	overflow:hidden;
+}
+
+.row__full-width img{
+	width:100%;
+	height:auto;
+}
+
+.image-overlay-text{
+	position:relative;
+	top:225px;
+	width:100%;
+	text-align:center;
+	z-index: 10;
+	color:rgb(115,123,130);
+}
+
+@media(max-width:768px){
+	.image-overlay-text{
+		top:200px;
+	}
+	.navbar-brand img{
+		width:150px;
+	}
+	.holiday-header{
+		height:266px !important;
+	}
+	
+	.holiday-hero-text{
+		font-size:36px;
+		width:100%;
+		text-align: center;
+	}
+}
+
+/* Featured Links */
+.featured-link{
+	height:auto;
+	max-height:320px;
+	overflow:hidden;
+	padding:15px;
+	
+}
+.featured-link-image{
+	max-width: 300px;
+	width:100%;
+	height:auto;
+	max-height:280px;
+	display:block;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.featured-link-title{
+	z-index:10;
+	position:absolute;
+	top:80%;
+	left:10%;
+	transform: translateY(-10%);
+	padding:2px;
+	color:rgb(115, 123, 130);
+	width:80%;
+	text-align: center;
+	font-size: 28px;
+	min-height:20px;
+	transition: all 1s;
+	height:100%;
+}
+
+.featured-link-title.close{
+	top:100%;
+	height:0;
+}
+
+@media(max-width:768px){
+	.featured-link-image{
+		max-height: 150px;
+		max-width:150px;
+	}
+	
+	.featured-link-title{
+		display:none;
+	}
+}

@@ -1,0 +1,61 @@
+.mapboxgl-map{
+	height:auto;
+	min-height:400px;
+	width:100% !important;
+}
+
+.vendor-list{
+	width:100%;
+	max-width: 500px;
+}
+
+.vendor-list input{
+	width:100%;
+}
+
+.vendor-list ul{
+	width:100%;
+	list-style-type: none;
+	padding-left:0px;
+}
+
+.vendor-list--item{
+	border-bottom:1px solid #000000;
+	padding:5px;
+}
+
+.vendor-list--item:last-of-type{
+	border-bottom:none;
+}
+
+.vendor-list--item:hover{
+	background-color:lightgrey;
+	cursor:pointer;
+}
+
+.vendor-list input{
+	border:none;
+	border-bottom:1px solid black;
+}
+
+.loading-section{
+	width:100%;
+	position:absolute;
+	top:0;
+	bottom:0;
+	background-color: rgba(0,0,0,0.3);
+	left:0;
+	z-index: 1000;
+}
+
+
+.vendors-loading{
+	font-size: 4em;
+	text-align: center;
+	width:fit-content;
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:1000000;
+	color:#ffffff;
+}

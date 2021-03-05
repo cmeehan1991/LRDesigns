@@ -1,0 +1,197 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2016, 10:19:30 AM
+    Author     : cmeehan
+*/
+
+.primary-nav{
+	background-color:#fff !important;
+}
+
+.secondary-nav{
+	background-color:lightgrey !important; 
+}
+
+
+ul.social-media-accounts{
+	padding-left:0px !important; 
+	margin-bottom: 0px !important;
+	list-style-type: none;
+}
+
+ul.social-media-accounts li{
+	display:inline;
+	padding:5px;
+}
+
+
+
+@media(max-width:786px){
+	.primary-nav img{
+		width:50%;
+	}
+}
+
+
+.primary-nav .navbar-brand>img{
+	width:100%;
+	max-width:300px;
+}
+
+li.dropdown.mega-menu{
+	position:static;
+}
+
+.mega-menu:hover .dropdown-menu{
+	display:block;
+}
+
+@media(min-width:786px){
+	.mega-menu .dropdown-menu{
+		left:0;
+		right:0;
+		width:100%;
+		padding:20px;
+		border:0px solid transparent !important;
+		border-radius: 0px !important;
+		margin-top:0px !important;
+		columns:2; 
+		background-color: lightgrey;
+	}
+	
+	.mega-menu .dropdown-menu li{
+		display:block;
+		color:#fff !important;
+		width:fit-content;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	
+	.mega-menu .dropdown-item:hover{
+		background-color: transparent !important;
+		text-decoration: underline;
+	}
+}
+
+@media(max-width:786px){
+	.mega-menu .dropdown-menu{
+		border:none;
+	}
+}
+
+.navbar-toggler{
+	border:none !important;
+}
+
+/* Cart header widget */
+.cart-list{
+	display:none;
+	position:absolute;
+	top:30px;
+	overflow:auto;
+	z-index:10000;
+	background-color:#fff !important;
+	font-size:1em !important;
+	max-width:300px;
+	width:100%;
+	min-height: 100px;
+	min-width:300px;
+	background-color:#000;
+	list-style-type:none;
+	padding-left:0px;
+}
+
+.cart-widget .cart-widget-link{
+	font-size:2em;
+}
+
+@media(max-width:786p){
+	.cart-list{
+		max-width:150px;
+	}
+}
+
+.cart-widget--title{
+	border-bottom:1px solid #000000;
+	text-align: center
+}
+
+
+
+.cart-widget .dropdown-menu{
+	width:fit-content;
+	min-width:400px;
+	min-height:200px;
+}
+
+.cart-widget:hover .dropdown-menu{
+	display: block;
+	
+}
+
+.cart-widget .dropdown-menu{
+	width:100%;
+	/*display:inline-block;*/
+	right:0;
+	border:none;
+}
+
+.cart-list--list{
+	list-style-type: none;
+	padding-left:0px;
+	display:flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	z-index:100000000000;
+}
+
+.cart-list--list:before{
+	z-index: 10;
+	opacity:30%;
+	position:absolute;
+	width:100vw;
+	height:100vh;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-color:#000000;
+}
+
+.cart-list--item{
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+}
+
+.cart-list--item a{
+	color:#000000;
+	text-decoration: none;
+}
+
+.cart-list--item a h3{
+	font-size:1.25em;
+}
+
+.cart-list--item .item-price-quantity, .cart-list--subtotal-quantity{
+	display: flex;
+    justify-content: space-between;
+}
+
+.cart-list--subtotal-quantity{
+	width:100%;
+	border-top:2px solid #000000;
+	font-size: 1em;
+}
+
+.cart-list--subtotal-quantity span{
+	padding-left:5px; 
+	padding-right:5px;
+}
+
