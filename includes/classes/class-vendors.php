@@ -10,7 +10,8 @@ class LR_Vendors{
 	public function rest_endpoints(){
 		register_rest_route('lr/v1', 'get-vendors', array( 
 			'methods'	=> array('GET', 'POST'), 
-			'callback'	=> array($this, 'get_vendors')
+			'callback'	=> array($this, 'get_vendors'),
+			'permission_callback'	=> '__return_true'
 		) );
 	}
 	
