@@ -33,12 +33,12 @@
 	    </nav>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light primary-nav">
 			<div class="container-fluid">
-					<div class="col">
+					<div class="col-1">
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 					</div>
-					<div class="col-md-10 mx-auto d-flex justify-content-center">
+					<div class="col-10 mx-auto d-flex justify-content-center">
 						<a class="navbar-brand" href="<?php bloginfo('url');?>">
 							<?php 
 							
@@ -54,7 +54,7 @@
 							?>
 						</a>	
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div class="col-1 d-flex justify-content-center">
 						<?php dynamic_sidebar('primary-navbar-right'); ?>
 					</div>
 			</div>
