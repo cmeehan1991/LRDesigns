@@ -2,14 +2,15 @@ var $ = require('jquery');
 var list = require('list.js'); 
 var retailers = [];
 
-var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+var mapboxgl;
 var map;
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9ybWVlaGFuMTk5MSIsImEiOiJja2x3aDBjcmQwaXlnMnJqamEyOTh6Y3h2In0.gQD6bVq5_nfZ58FKB3eJYg';
 
 $(document).ready(function(){
 
 	if($('.vendors-map')){
+		mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+		mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9ybWVlaGFuMTk5MSIsImEiOiJja2x3aDBjcmQwaXlnMnJqamEyOTh6Y3h2In0.gQD6bVq5_nfZ58FKB3eJYg';
 		getUserLocation();		
 	}
 	

@@ -335,4 +335,41 @@ function lr_loop_shop_per_page($cols){
   return $cols;
 }
 
+/**
+ * Adds the ability to sort products in the shop based on the SKU
+ * Can be combined with tips here to display the SKU on the shop page: https://www.skyverge.com/blog/add-information-to-woocommerce-shop-page/
+ *
+ * @param array $args the sorting args
+ * @return array updated args
+ */
+function sv_add_sku_sorting( $args ) {
+
+	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+
+	if ( 'sku' == $orderby_value ) {
+		$args['orderby'] = 'meta_value';
+		$args['order'] = 'asc'; // lists SKUs alphabetically 0-9, a-z; change to desc for reverse alphabetical
+		$args['meta_key'] = '_sku';
+	}
+
+	return $args;
+}
+add_filter( 'woocommerce_get_catalog_ordering_args', 'sv_add_sku_sorting' );
+
+
+/**
+ * Add the option to the orderby dropdown.
+ *
+ * @param array $sortby the sortby options
+ * @return array updated sortby
+ */
+function sv_sku_sorting_orderby( $sortby ) {
+
+	// Change text above as desired; this shows in the sorting dropdown
+	$sortby['sku'] = __( 'Sort by SKU', 'textdomain' );
+
+	return $sortby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sv_sku_sorting_orderby' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sv_sku_sorting_orderby' );
 
