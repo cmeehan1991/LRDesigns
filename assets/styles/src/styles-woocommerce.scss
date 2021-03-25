@@ -1,26 +1,11 @@
+$tablet-width: 786px; 
+$desktop-width: 1024px;
+
 .woocommerce{
 	display:flex;
 	justify-content:center;
 	width:100%;
 	flex-wrap: wrap;
-}
-
-.woocommerce-MyAccount-navigation ul{
-	list-style-type: none;
-	background-color: lightgrey;
-	margin-bottom:0px;
-	padding:5px !important;
-	margin-right:25px;
-}
-
-.woocommerce-MyAccount-Navigation ul li:after{
-	content: '____________';
-}
-
-
-li.woocommerce-MyAccount-navigation-link a{
-	color:#000 !important;
-	text-decoration: none !important;
 }
 
 @media(max-width:768px){
@@ -289,4 +274,126 @@ li.woocommerce-mini-cart-item a img{
 	flex-wrap: wrap;
 	flex-direction: column;
 	
+}
+/* My Account Navigation */
+.woocommerce-MyAccount-navigation ul{
+	list-style-type: none;
+	margin-bottom:0px;
+	padding:5px !important;
+	margin-right:25px;
+	position:relative;
+}
+
+
+li.woocommerce-MyAccount-navigation-link a{
+	color:#000 !important;
+	text-decoration: none !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:before{
+	content:'\f3fd';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:before{
+	content:'\f291';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:before{
+	content:'\f2bb';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:before{
+	content:'\f007';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--downloads a:before{
+	content:'\f381';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before{
+	content:'\f2f5';
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	position:absolute;
+	right:0px !important;
+}
+
+.woocommerce-MyAccount-navigation li{
+	border-bottom: 1px solid black;	
+	width:100%;
+	min-width:150px !important;
+}
+
+.woocommerce-MyAccount-navigation li a{
+	height:inherit;
+	width:100%;
+	display:block;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.woocommerce-MyAccount-navigation li:last-of-type{
+	border-bottom:none;
+}
+
+.woocommerce-MyAccount-navigation li:hover{
+	background-color:lightgrey;
+}
+
+/* 
+* Mobile view account navbar 
+*/
+@media(max-width:#{$desktop-width - 1px}){
+	.woocommerce-MyAccount-navigation{
+		position:fixed;
+		bottom:0;
+		left:0;
+		right:0;
+		width:100%;
+	}
+	
+	.woocommerce-MyAccount-navigation ul{
+		width:100%;
+		display:flex;
+		align-items: stretch;
+		justify-content: space-between;
+		background-color:lightgrey;
+		padding:0px !important;
+	}
+	
+	.woocommerce-MyAccount-navigation ul li{
+		display:inline-block;
+		width:100%;
+		text-align: center;
+	}
+	
+	.woocommerce-MyAccount-navigation ul li.is-active{
+		background-color:grey;
+	}
+	
+	.woocommerce-MyAccount-navigation ul li.is-active a{
+		text-decoration: underline !important;
+		color:#ffffff !important;
+	}
+		
 }

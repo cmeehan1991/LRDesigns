@@ -11,12 +11,12 @@ include(BLOG_PATH . '/includes/functions/functions-assets.php');
 include(BLOG_PATH . '/includes/functions/functions-sidebars.php');
 include(BLOG_PATH . '/includes/functions/functions-theme-supports.php');
 include(BLOG_PATH . '/includes/functions/functions-menus.php');
-include(BLOG_PATH . '/includes/functions/functions-woocommerce.php');
 
 
 /*Classes - Required */
 include(BLOG_PATH . '/includes/classes/class-bootstrap-nav-menu.php');
 include(BLOG_PATH . '/includes/classes/class-vendors.php');
+include(BLOG_PATH . '/includes/classes/class-woocommerce.php');
 
 /* Widgets */
 include(BLOG_PATH . '/includes/widgets/class-social-media-widget.php');
