@@ -5,8 +5,7 @@ define('BLOG_PATH', get_template_directory());
 define('LR_VERSION', '0.0.1');
 define('LR_TEXTDOMAIN', 'lrdesign');
 
-
-/* Funections - REQUIRED */
+/* Functions - REQUIRED */
 include(BLOG_PATH . '/includes/functions/functions-assets.php');
 include(BLOG_PATH . '/includes/functions/functions-sidebars.php');
 include(BLOG_PATH . '/includes/functions/functions-theme-supports.php');

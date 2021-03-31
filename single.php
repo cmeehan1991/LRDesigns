@@ -5,12 +5,12 @@
 	<div class="row">
 
 		<div class="col-md-12">
-			
+			single
 			<?php 
 			if(have_posts()){
 				while(have_posts()){
 					the_post();
-					//the_content(); 
+					the_content(); 
 				} // end while
 			}else{
 				echo "No content";

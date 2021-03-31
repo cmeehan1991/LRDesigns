@@ -13,8 +13,8 @@ class LR_Woocommerce{
 		add_filter('manage_users_columns', array($this, 'modify_user_table'));
 		add_action('edit_user_profile', array($this, 'user_profile_form'));
 		add_action('edit_user_profile_update', array($this, 'save_user_profile_fields'));
-		add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
-		add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
+		//add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
+		//add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
 	}
 	
 	public function authenticate_new_customer($auth, $new_customer){
@@ -23,14 +23,17 @@ class LR_Woocommerce{
 	
 	public function check_user_status($user, $username, $password){
 		$user_status = get_user_meta($user->ID, 'status', true);
-		
-		if($user_status != 'Approved'){
-			$user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Your account has not been approved yet.'));
-			
+		if(user_can($user, 'edit_posts')){
+			$user = $user;
+		}else{
+			if($user_status != 'Approved'){
+				$user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Your account has not been approved yet.'));
+			}
 		}
 		
 		return $user;
 	}
+
 	
 	public function user_profile_form($user){
 		
