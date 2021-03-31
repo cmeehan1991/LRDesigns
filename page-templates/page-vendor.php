@@ -25,12 +25,12 @@ get_header();
 				<div class="loading-section">				
 				<i class="fas fa-spinner fa-pulse vendors-loading"></i>
 				</div>
-				<div class="col-md-6 d-flex justify-content-center">
+				<div class="col-md-6 mx-auto d-flex justify-content-center">
 					<?php get_template_part('template-parts/page', 'vendor-list'); ?>
 				</div>
-				<div class="col-md-6 d-flex justify-content-center">
+				<!--<div class="col-md-6 d-flex justify-content-center">
 					<?php get_template_part('template-parts/page', 'vendor-map'); ?>
-				</div>
+				</div>-->
 			</div>
 			<?php
 		} // endwhile

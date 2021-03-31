@@ -7,12 +7,22 @@ var map;
 
 
 $(document).ready(function(){
-
+	/*
 	if($('.vendors-map')){
 		mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 		mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9ybWVlaGFuMTk5MSIsImEiOiJja2x3aDBjcmQwaXlnMnJqamEyOTh6Y3h2In0.gQD6bVq5_nfZ58FKB3eJYg';
 		getUserLocation();		
-	}
+	}*/
+	
+	$.getJSON(rest_api.get_vendors)
+	.fail(function(error){
+		console.log(error);
+	})
+	.done(function(response){
+		lr_vendor_list(response);
+	});
+	
+	
 	
 });
 
@@ -111,12 +121,12 @@ function lr_vendor_list(vendors){
 		});
 		
 		
-		var lat = parseFloat(v.lat);
-		var lng = parseFloat(v.lng);
+		//var lat = parseFloat(v.lat);
+		//var lng = parseFloat(v.lng);
 		
-		var marker = new mapboxgl.Marker()
-		.setLngLat([lng, lat])
-		.addTo(map);
+		//var marker = new mapboxgl.Marker()
+		//.setLngLat([lng, lat])
+		//.addTo(map);
 		
 		
 		
@@ -127,8 +137,8 @@ function lr_vendor_list(vendors){
 
 	$('.loading-section').hide();
 	
-	$('.vendor-list--item').on('click', function(){
-		focusMap($(this).attr('data-id'));
-	});
+	//$('.vendor-list--item').on('click', function(){
+	//	focusMap($(this).attr('data-id'));
+	//});
 	
 }

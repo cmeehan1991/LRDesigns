@@ -13,8 +13,8 @@ class LR_Woocommerce{
 		add_filter('manage_users_columns', array($this, 'modify_user_table'));
 		add_action('edit_user_profile', array($this, 'user_profile_form'));
 		add_action('edit_user_profile_update', array($this, 'save_user_profile_fields'));
-		//add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
-		//add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
+		add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
+		add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
 	}
 	
 	public function authenticate_new_customer($auth, $new_customer){
