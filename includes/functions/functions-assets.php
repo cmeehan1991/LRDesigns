@@ -1,8 +1,8 @@
 <?php
 
 function lrdesigns_custom_styles(){
-    wp_enqueue_style('mapbox', 'https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css', array(), '2.2.1');
-    wp_enqueue_style('allstyles', BLOG_URI.'/assets/styles/dist/allstyles.css', array('mapbox'), rand());
+    //wp_enqueue_style('mapbox', 'https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css', array(), '2.2.1');
+    wp_enqueue_style('allstyles', BLOG_URI.'/assets/styles/dist/allstyles.css', array(), rand());
 }
 add_action('wp_enqueue_scripts','lrdesigns_custom_styles');
 
