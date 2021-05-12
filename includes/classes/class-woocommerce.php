@@ -23,11 +23,15 @@ class LR_Woocommerce{
 	
 	public function check_user_status($user, $username, $password){
 		$user_status = get_user_meta($user->ID, 'status', true);
-		if(user_can($user, 'edit_posts')){
-			$user = $user;
-		}else{
-			if($user_status != 'Approved'){
-				$user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Your account has not been approved yet.'));
+		
+		if($user_status){
+		
+			if(user_can($user, 'edit_posts')){
+				$user = $user;
+			}else{
+				if($user_status != 'Approved'){
+					$user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Your account has not been approved yet.'));
+				}
 			}
 		}
 		
@@ -131,7 +135,7 @@ class LR_Woocommerce{
 	/**
 	* Change the price based on if the user is signed in
 	* Retailers should see the wholesale price
-	* Non-retailers should see the MSRP = wholesale * 2.5
+	* Non-retailers should see the MSRP = wholesale * 3
 	*/
 	public function lr_change_product_price_display($price, $product){
 		
@@ -140,7 +144,7 @@ class LR_Woocommerce{
 		}else{
 			$price = doubleval($product->get_price());
 			setlocale(LC_MONETARY, 'en_US');
-			$price = "MSRP: " . money_format("%n", $price * 2.5);
+			$price = "MSRP: " . money_format("%n", $price * 3);
 		}
 		
 		
