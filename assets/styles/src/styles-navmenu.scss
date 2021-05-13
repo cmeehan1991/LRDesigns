@@ -10,6 +10,7 @@ and open the template in the editor.
 
 .primary-nav{
 	background-color:#fff !important;
+	text-transform: uppercase;
 }
 
 .secondary-nav{
@@ -18,6 +19,7 @@ and open the template in the editor.
 
 .secondary-nav a{
 	color:#000000;
+	
 }
 
 ul.social-media-accounts{
@@ -113,9 +115,13 @@ li.dropdown.mega-menu{
 	font-size:2em;
 }
 
-@media(max-width:786p){
+@media(max-width:786px){
 	.cart-list{
 		max-width:150px;
+	}
+	
+	.cart-widget .dropdown-menu{
+		position:absolute !important;
 	}
 }
 

@@ -1,20 +1,77 @@
 <?php
 class LR_Woocommerce{
 	function __construct(){
-		add_action('after_theme_setup', array($this, 'woocommerce'));
+		
+		/**
+		 * Actions
+		 */
+		add_action('after_setup_theme', array($this, 'woocommerce_support'));
+		add_action('user_register', array($this, 'set_new_user_status'));
+		add_action('edit_user_profile', array($this, 'user_profile_form'));
+		add_action('edit_user_profile_update', array($this, 'save_user_profile_fields'));
+		add_action('init', array($this, 'register_custom_shop_collections_taxonomies'));
+		
+		/**
+		 * Filters
+		 */
 		add_filter('get_product_search_form' , array($this, 'woo_custom_product_searchform')); // Product search form
 		add_filter('woocommerce_get_price_html', array($this, 'lr_change_product_price_display'), 10, 2);
 		add_filter('woocommerce_is_purchasable', array($this, 'lr_add_to_cart_button'));
 		add_filter('woocommerce_get_catalog_ordering_args', array($this, 'sv_add_sku_sorting' ));
 		add_filter('woocommerce_catalog_orderby', array($this, 'sv_sku_sorting_orderby' ));
 		add_filter('woocommerce_default_catalog_orderby_options', array($this, 'sv_sku_sorting_orderby' ));
-		add_action('user_register', array($this, 'set_new_user_status'));
 		add_filter('manage_users_custom_column', array($this, 'user_status_column'), 10, 3);
 		add_filter('manage_users_columns', array($this, 'modify_user_table'));
-		add_action('edit_user_profile', array($this, 'user_profile_form'));
-		add_action('edit_user_profile_update', array($this, 'save_user_profile_fields'));
 		add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
 		add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
+		add_filter('woocommerce_page_title', array($this, 'page_title'));
+		
+	}
+
+	public function woocommerce_page_title($echo = true){
+		
+		if(is_product_category()){
+			$page_title = '';	
+		}
+		
+		return $page_title;
+		
+	}
+
+	public function register_custom_shop_collections_taxonomies(){
+		$labels = array(
+			'name'                       => _x( 'Collections', 'Taxonomy General Name', 'text_domain' ),
+			'singular_name'              => _x( 'Collection', 'Taxonomy Singular Name', 'text_domain' ),
+			'menu_name'                  => __( 'Collections', 'text_domain' ),
+			'all_items'                  => __( 'All Collections', 'text_domain' ),
+			'parent_item'                => __( 'Parent Collection', 'text_domain' ),
+			'parent_item_colon'          => __( 'Parent Collection:', 'text_domain' ),
+			'new_item_name'              => __( 'New Collection Name', 'text_domain' ),
+			'add_new_item'               => __( 'Add New Collection', 'text_domain' ),
+			'edit_item'                  => __( 'Edit Collection', 'text_domain' ),
+			'update_item'                => __( 'Update Collection', 'text_domain' ),
+			'view_item'                  => __( 'View Collection', 'text_domain' ),
+			'separate_items_with_commas' => __( 'Separate collections with commas', 'text_domain' ),
+			'add_or_remove_items'        => __( 'Add or remove collections', 'text_domain' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+			'popular_items'              => __( 'Popular Collections', 'text_domain' ),
+			'search_items'               => __( 'Search Collections', 'text_domain' ),
+			'not_found'                  => __( 'Not Found', 'text_domain' ),
+			'no_terms'                   => __( 'No collections', 'text_domain' ),
+			'items_list'                 => __( 'Collections list', 'text_domain' ),
+			'items_list_navigation'      => __( 'Collections list navigation', 'text_domain' ),
+		);
+		$args = array(
+			'labels'                     => $labels,
+			'hierarchical'               => true,
+			'public'                     => true,
+			'show_ui'                    => true,
+			'show_admin_column'          => true,
+			'show_in_nav_menus'          => true,
+			'show_tagcloud'              => true,
+			'rewrite'					 => array('slug' => 'collections')
+		);
+		register_taxonomy( 'lr_product_collection', array( 'product' ), $args );
 	}
 	
 	public function authenticate_new_customer($auth, $new_customer){

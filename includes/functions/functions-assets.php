@@ -10,7 +10,7 @@ add_action('wp_enqueue_scripts','lrdesigns_custom_styles');
 // Javascript files - front end
 add_action('wp_enqueue_scripts','lrdesigns_scripts');
 function lrdesigns_scripts(){
-    wp_register_script('allscripts', BLOG_URI . '/assets/scripts/js/dist/allscripts.js', array(), rand(), false);
+    wp_register_script('allscripts', BLOG_URI . '/assets/scripts/js/dist/allscripts.min.js', array(), rand(), false);
     wp_localize_script('allscripts', 'rest_api', array(
 	    'base'			=> get_rest_url(),
 	    'get_vendors'	=> get_rest_url(get_current_blog_id(), 'lr/v1/get-vendors'),

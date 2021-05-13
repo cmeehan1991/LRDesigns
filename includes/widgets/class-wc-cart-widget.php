@@ -58,8 +58,8 @@ class LR_WC_Cart_Widget extends WP_Widget{
 								
 								<?php 
 	
-								$subtotal .= $product->get_price() * $item['quantity'];
-								$quantity .= $item['quantity'];
+								$subtotal = $subtotal + ($product->get_price() * $item['quantity']);
+								$quantity = $quantity + $item['quantity'];
 							}
 							?>
 							
