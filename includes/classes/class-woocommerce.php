@@ -24,7 +24,7 @@ class LR_Woocommerce{
 		add_filter('manage_users_columns', array($this, 'modify_user_table'));
 		add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
 		add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
-		add_filter('woocommerce_page_title', array($this, 'page_title'));
+		add_filter('woocommerce_page_title', array($this, 'woocommerce_page_title'));
 		
 	}
 
@@ -168,7 +168,11 @@ class LR_Woocommerce{
 	* Required by Woocommerce
 	*/
 	public function woocommerce_support(){
-		add_theme_support('woocommerce');
+		add_theme_support('woocommerce');    
+//		add_theme_support( 'wc-product-gallery-zoom' );
+	    add_theme_support( 'wc-product-gallery-lightbox' );
+	    add_theme_support( 'wc-product-gallery-slider' );
+
 	}
 	
 	/**

@@ -227,10 +227,26 @@ a.button, button.single_add_to_cart_button{
  	padding-left:0px !important;
  }
  
-  
+ /* Block Styles */
+ .wc-block-grid__products li a img{
+	max-width: 300px;
+	background-image: linear-gradient(130deg, grey, lightgrey);
+ }
+ 
+ .wc-block-grid__products li a.wc-block-grid__product-link{
+	 text-transform: uppercase;
+	 color:#000000 !important;
+	 text-decoration: none;
+ }
+ 
+ /* Products */
  ul.products{
 	display:flex;
 	flex-wrap:wrap;		 
+}
+
+ul.products li.product a img{
+	background-image: linear-gradient(130deg, grey, lightgrey);
 }
 
 li.product{
