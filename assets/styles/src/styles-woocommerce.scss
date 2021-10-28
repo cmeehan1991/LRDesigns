@@ -4,8 +4,7 @@ $desktop-width: 1024px;
 .woocommerce{
 	display:flex;
 	justify-content:center;
-	width:100%;
-	flex-wrap: wrap;
+	width:100%; 
 }
 
 /* Category Archive Page */
@@ -58,14 +57,17 @@ $desktop-width: 1024px;
 		display:flex;
 		justify-content:center;
 		width:100%;
+		flex-direction: column;
 	}
 
+	.nav-link--title{
+		display:none;
+	}
 }
 
 /* Cart */
-.woocommerce-cart-form{
-	width:100% !important;
-	
+.cart-collaterals{
+	margin-left:15px;
 }
 
 .woocommerce-cart-form table.shop_table{
@@ -146,15 +148,26 @@ a.button, button.single_add_to_cart_button{
 	}	
 	
 	.woocommerce ul.products li.product:nth-child(odd){
-		margin-right:5px;
+		padding-right:5px;
 	}
 	
 	.woocommerce ul.products li.products:nth-child(even){
-		margin-left:5px;
+		padding-left:5px;
 	}
 	
+	.woocommerce-loop-product__title{
+		text-align:center;
+	}
 	
+	.shop-sidebar-right{
+		padding-left: 0px !important;
+	}
 	
+	.related ul li{
+		margin-left:auto;
+		margin-right:auto;
+		padding:5px;
+	}
 }
 
 /* Product List Widget */
@@ -303,6 +316,13 @@ li.woocommerce-mini-cart-item a img{
 	flex-direction: column;
 	
 }
+
+/* My Account Content */
+.woocommerce-MyAccount-content{
+	min-width:85vw;
+	width:75%;
+}
+
 /* My Account Navigation */
 .woocommerce-MyAccount-navigation ul{
 	list-style-type: none;
@@ -391,7 +411,7 @@ li.woocommerce-MyAccount-navigation-link a{
 /* 
 * Mobile view account navbar 
 */
-@media(max-width:#{$desktop-width - 1px}){
+/*@media(max-width:#{$desktop-width - 1px}){
 	.woocommerce-MyAccount-navigation{
 		position:fixed;
 		bottom:0;
@@ -424,7 +444,7 @@ li.woocommerce-MyAccount-navigation-link a{
 		color:#ffffff !important;
 	}
 		
-}
+}*/
 
 /*Columns Styles */
 @media(min-width:786px){
@@ -457,4 +477,43 @@ span.page-numbers.current{
 	text-decoration: underline !important;
 	background:none !important;
 	color:#000000 !important;
+}
+
+/* Account */
+.account-links{
+	list-style-type: none;
+	padding-left:0px !important;
+}
+
+.account-links li{
+	display:inline-block;
+	border:1px solid grey;
+	border-radius: 5px;
+	width:33%;
+	min-width:350px;
+	margin-top:5px;
+	
+}
+.account-links li a{
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	text-decoration: none;
+	color:#000000;
+	padding:15px;
+}
+
+.account-links li:hover{
+	background-color:lightgrey;
+}
+
+.account-links li a i{
+	background-color: #abb8c3;
+	border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:15px;
 }

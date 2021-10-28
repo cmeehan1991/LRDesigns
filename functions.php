@@ -10,6 +10,7 @@ include(BLOG_PATH . '/includes/functions/functions-assets.php');
 include(BLOG_PATH . '/includes/functions/functions-sidebars.php');
 include(BLOG_PATH . '/includes/functions/functions-theme-supports.php');
 include(BLOG_PATH . '/includes/functions/functions-menus.php');
+include(BLOG_PATH . '/includes/functions/functions-acf.php');
 
 
 /*Classes - Required */

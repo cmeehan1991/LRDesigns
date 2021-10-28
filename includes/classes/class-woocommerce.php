@@ -10,6 +10,8 @@ class LR_Woocommerce{
 		add_action('edit_user_profile', array($this, 'user_profile_form'));
 		add_action('edit_user_profile_update', array($this, 'save_user_profile_fields'));
 		add_action('init', array($this, 'register_custom_shop_collections_taxonomies'));
+		add_action('woocommerce_single_product_summary', array($this, 'replace_single_add_to_cart_button'));
+		add_action('init', array($this, 'wc_custom_account_endpoints'));
 		
 		/**
 		 * Filters
@@ -24,8 +26,111 @@ class LR_Woocommerce{
 		add_filter('manage_users_columns', array($this, 'modify_user_table'));
 		add_filter('authenticate', array($this, 'check_user_status'), 100, 3);
 		add_filter('woocommerce_registration_auth_new_customer', array($this, 'authenticate_new_customer'), 10, 2);
-		add_filter('woocommerce_page_title', array($this, 'woocommerce_page_title'));
+		add_filter('woocommerce_page_title', array($this, 'woocommerce_page_title'));		
+		add_filter('woocommerce_loop_add_to_cart_link', array($this, 'replace_loop_add_to_cart_button'), 10, 3);
+		add_filter('woocommerce_checkout_fields', array($this, 'add_bootstrap_to_checkout_fields'));
+		add_filter('woocommerce_account_menu_items', array($this, 'manage_my_account_links'));
+		add_filter('woocommerce_form_field_args', array($this, 'add_bootstrap_form_field_classes'), 10, 3);
+		add_filter('woocommerce_account_menu_item_classes', array($this, 'add_bootstrap_classes_menu_items'), 10,2);
 		
+	}
+	
+	public function add_bootstrap_classes_menu_items($classes, $endpoint){
+
+		$classes[] = 'nav-item';
+		
+		//var_dump($classes);
+		return $classes;
+	}
+	
+		
+	public function add_bootstrap_form_field_classes($args, $key, $value){		
+		$args['class'][] = 'form-group';
+		
+		$args['input_class'][] = 'form-control';
+		
+		return $args;
+	}
+		
+	public function wc_custom_account_endpoints(){
+		add_rewrite_endpoint('documents', EP_ROOT | EP_PAGES);
+	}
+	
+	
+	public function manage_my_account_links($menu_links){
+
+		
+		unset($menu_links['downloads']);
+		
+		
+		$menu_links['dashboard'] = 'My Account';
+		$menu_links['edit-account'] = 'Account Details';
+		
+		
+		return $menu_links;
+	}
+	
+	/**
+	 * Add bootstrap to the checkout fields
+	 */
+	public function add_bootstrap_to_checkout_fields($fields){
+		if($fields){
+			foreach($fields as &$fieldset){
+				foreach($fieldset as &$field){
+					// add form-group class around the label and input
+					$field['class'][] = 'form-group';
+					
+					// add form-control to the input
+					$field['input_class'][] = 'form-control';
+				}
+			}
+		}
+		
+		return $fields;
+	}
+
+	/**
+	 * Replace the add to cart button on the variable product page for users that are not logged in.
+	 */
+	public function replace_loop_add_to_cart_button($button, $product, $args){
+				
+		// Check if the user is logged in
+		if(!is_user_logged_in()){
+			$button_text = __("Locate a Retailer", TEXTDOMAIN);
+			
+			$button_link = get_field('locate_a_retailer_page', 'option');
+			
+			$button = '<a class="button" href="' . $button_link . '">' . $button_text . '</a>';
+		}
+		
+		return $button;
+	}
+	
+	/**
+	 * Replace the add to cart button on the single product page for users that are not logged in. 
+	 */
+	public function replace_single_add_to_cart_button(){
+		global $product;
+		
+		if(!is_user_logged_in()){
+			if($product->is_type('variable')){
+	            remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation_add_to_cart_button', 20 );			
+				add_action('woocommerce_single_variation', array($this, 'custom_product_button'), 20);
+
+			}else{            
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+				add_action('woocommerce_single_product_summary', array($this, 'custom_product_button'), 30);
+			}
+		}
+		
+	}
+	
+	
+	public function custom_product_button(){
+		$button_link = get_field('locate_a_retailer_page', 'option');
+		$button_text = __('Locate a Retailer', TEXTDOMAIN);
+
+		echo '<a class="button" href="'.$button_link.'">' . $button_text . '</a>';
 	}
 
 	public function woocommerce_page_title($echo = true){

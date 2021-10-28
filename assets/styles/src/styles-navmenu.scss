@@ -87,6 +87,21 @@ li.dropdown.mega-menu{
 	.mega-menu .dropdown-menu{
 		border:none;
 	}
+	
+	.cart-list--item{
+		width:90%;
+		align-self: stretch;
+	}
+	
+	.cart-widget .dropdown-menu{
+		min-width: 100vw !important;
+	}
+	
+	.cart-list--list{
+		padding-left:15px !important;
+	}
+	
+	
 }
 
 .navbar-toggler{
