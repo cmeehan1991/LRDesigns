@@ -2,9 +2,9 @@
 
 get_header();
 ?>
-<div class="container-fluid">
+<div class="container-fluid g-0">
 
-	<div class="row">
+	<div class="row g-0">
 		<div class="col-ld-12">
 			<?php 
 			if(is_product_category()){
