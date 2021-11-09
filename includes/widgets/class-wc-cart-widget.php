@@ -12,8 +12,11 @@ class LR_WC_Cart_Widget extends WP_Widget{
 		global $woocommerce;
 		
 		$widget_id = 'widget_' . $args['widget_id'];
-		
-		$items = $woocommerce->cart->get_cart();
+		$items = false;
+
+		if($woocommerce->cart){
+			$items = $woocommerce->cart->get_cart();
+		}
 				
 		$accounts_permalink = get_permalink(get_option('woocommerce_myaccount_page_id'));
 		?>
@@ -30,7 +33,7 @@ class LR_WC_Cart_Widget extends WP_Widget{
 							
 						if(!is_user_logged_in()){
 							?>
-							<li class="cart-list--item__message">Please <a href="https://www.google.com">sign in</a> to add to view your cart.</li>
+							<li class="cart-list--item__message">Please <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>">sign in</a> to add to view your cart.</li>
 							<?php
 						}else if(is_user_logged_in() && $items){
 							
