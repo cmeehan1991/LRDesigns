@@ -1,3 +1,5 @@
+var $ = require('jquery');
+var list = require('list.js');
 var retailers = [];
 
 var mapboxgl;
