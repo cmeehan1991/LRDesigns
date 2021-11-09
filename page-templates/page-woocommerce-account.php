@@ -15,8 +15,13 @@ get_header();
 			the_post();
 			?>
 			<div class="row">
-				<div class="col-8 mx-auto">
-					<h2><?php the_title(); ?></h2>
+				<div class="col-12">
+					<?php 
+					$breadcrumb_args = array(
+						'delimiter' => ' › '
+					);
+					woocommerce_breadcrumb($breadcrumb_args);
+			?>
 				</div>
 			</div>
 			<div class="row">
