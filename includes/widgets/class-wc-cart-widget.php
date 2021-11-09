@@ -12,6 +12,7 @@ class LR_WC_Cart_Widget extends WP_Widget{
 		global $woocommerce;
 		
 		$widget_id = 'widget_' . $args['widget_id'];
+		
 		$items = false;
 
 		if($woocommerce->cart){
