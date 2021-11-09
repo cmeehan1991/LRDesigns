@@ -3178,7 +3178,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./scripts/js/src/vendors.js ***!
   \***********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+var list = __webpack_require__(/*! list.js */ "./node_modules/list.js/src/index.js");
 
 var retailers = [];
 var mapboxgl;
