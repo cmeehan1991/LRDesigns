@@ -19,7 +19,7 @@ include(BLOG_PATH . '/includes/classes/class-vendors.php');
 include(BLOG_PATH . '/includes/classes/class-woocommerce.php');
 
 /* Widgets */
-include(BLOG_PATH . '/includes/widgets/class-social-media-widget.php');
+//include(BLOG_PATH . '/includes/widgets/class-social-media-widget.php');
 include(BLOG_PATH . '/includes/widgets/class-wc-account-widget.php');
 include(BLOG_PATH . '/includes/widgets/class-wc-cart-widget.php');
 include(BLOG_PATH . '/includes/widgets/class-wc-product-collection-widget.php');
