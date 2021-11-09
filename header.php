@@ -11,6 +11,7 @@
         <?php wp_head(); ?>
     </head>
     <body>
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJJ9T5V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<nav class="navbar navbar-expand-xs navbar-dark bg-dark secondary-nav">
 		    <div class="container-fluid">
 				    <div class="col-md-3 d-flex d-none d-md-flex">
