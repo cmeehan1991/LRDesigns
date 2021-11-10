@@ -11590,11 +11590,14 @@ li.woocommerce-mini-cart-item a img {
 }
 
 /* My Account Navigation */
+.woocommerce-MyAccount-navigation {
+  margin-right: 25px;
+}
+
 .woocommerce-MyAccount-navigation ul {
   list-style-type: none;
   margin-bottom: 0px;
   padding: 5px !important;
-  margin-right: 25px;
   position: relative;
   width: 100%;
 }
@@ -11685,6 +11688,10 @@ li.woocommerce-MyAccount-navigation-link a {
     min-width: 50%;
     max-width: 50% !important;
   }
+
+  .woocommerce-MyAccount-navigation {
+    margin-right: 0px;
+  }
 }
 /* Pagination */
 ul.page-numbers {
@@ -11709,9 +11716,9 @@ span.page-numbers.current {
 .account-links {
   list-style-type: none;
   padding-left: 0px !important;
-  columns: 3;
+  /*columns:3;
   -webkit-columns: 3;
-  -moz-columns: 3;
+  -moz-columns: 3*/
 }
 
 .account-links li {
@@ -11719,7 +11726,8 @@ span.page-numbers.current {
   border: 1px solid grey;
   border-radius: 5px;
   width: 100%;
-  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 33%;
 }
 
 .account-links li a {
@@ -11746,17 +11754,28 @@ span.page-numbers.current {
   margin-right: 15px;
 }
 
-@media (max-width: 786px) {
+@media (max-width: 1024px) and (min-width: 786px) {
   .account-links {
-    -moz-columns: 1;
-         columns: 1;
+    display: flex;
+    flex-direction: row;
   }
 
+  .account-links li {
+    width: 33%;
+    margin: 5px;
+  }
+}
+@media (max-width: 786px) {
   .woocommerce {
     display: flex;
     justify-content: center;
     width: 100%;
     flex-direction: column;
+  }
+
+  .account-links li {
+    margin-top: 5px;
+    width: 100%;
   }
 }
 html * {
